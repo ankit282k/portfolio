@@ -1,0 +1,277 @@
+// server.js - Node.js Express single-page Apple‑style portfolio
+// To run: npm init -y && npm install express && node server.js
+
+const path = require('path');
+const express = require('express');
+const app = express();
+
+// Serve static assets from the directory containing this file
+// (fixes cases where server.js is already inside a `public` folder)
+app.use(express.static(path.join(__dirname)));
+
+app.get('/', (req, res) => {
+  res.send(`
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ankit | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #eef1f7, #fdfdfd, #e8ecf3);
+      color: #1d1d1f;
+      scroll-behavior: smooth;
+    }
+
+    /* Fade animation */
+    section, header { animation: fadeUp 0.8s ease forwards; opacity: 0; }
+    @keyframes fadeUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    header {
+      text-align: center;
+      padding: 150px 20px 80px;
+    }
+
+    .hero-img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+      border: 5px solid rgba(255,255,255,0.8);
+    }
+
+    h1 {
+      font-size: 52px;
+      margin-top: 25px;
+      background: linear-gradient(to right, #000, #3a3a3a);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #101010;
+    }
+
+    p {
+      font-size: 19px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    section {
+      max-width: 1100px;
+      padding: 80px 25px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.75);
+      border-radius: 20px;
+      padding: 30px;
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+      transition: 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+    }
+
+    .grid {
+      display: grid;
+      gap: 25px;
+    }
+    .skills-grid {
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    }
+    .projects-grid, .experience-list {
+      grid-template-columns: 1fr;
+    }
+
+    /* Links */
+    a {
+      color: #0066ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 16px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header>
+    <img src="/profile.jpeg" class="hero-img" alt="Ankit Photo" />
+    <h1>ANKIT SAXENA</h1>
+    <p style="font-size:22px; margin-top:10px; opacity:0.85;">
+      GenAI Engineer • ML Engineer • Data Engineer
+    </p>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I am a Software Engineer specializing in <strong>GenAI, LLMs, MLOps, and Cloud-based ML systems</strong>.
+        I build scalable production applications that leverage AI, automation, and data engineering
+        to solve real business problems.
+      </p>
+      <p>
+        With hands-on experience across <strong>AWS, PySpark, machine learning, automation, and backend development</strong>,
+        I create solutions that are robust, fast, and production-ready. My work includes building
+        <strong>GenAI chatbots, RAG systems, ETL pipelines, ML workflows, and cloud-native applications</strong>.
+      </p>
+      <p>
+        I am passionate about delivering <strong>high-impact AI products</strong> that improve efficiency,
+        accelerate decision-making, and unlock new capabilities for users and businesses.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills & Technologies</h2>
+    <div class="grid skills-grid">
+      <div class="card">LLMs / Generative AI</div>
+      <div class="card">RAG Pipelines</div>
+      <div class="card">Prompt Engineering</div>
+      <div class="card">LangChain / LlamaIndex</div>
+      <div class="card">Hugging Face Models</div>
+      <div class="card">MLOps (CI/CD, Model Deployments)</div>
+      <div class="card">AWS (S3, Lambda, SageMaker, Bedrock)</div>
+      <div class="card">PySpark / Spark SQL</div>
+      <div class="card">ETL / Data Lakes</div>
+      <div class="card">Snowflake / Redshift</div>
+      <div class="card">Python / SQL / Node.js</div>
+      <div class="card">Docker / GitHub Actions</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Featured Projects</h2>
+
+    <div class="grid projects-grid">
+
+      <div class="card">
+        <strong style="font-size:20px;">AI-Powered Review Intelligence System</strong><br><br>
+        <ul style="line-height:1.8; font-size:17px; margin-left:20px;">
+          <li>Built a production-grade sentiment extraction system using LLMs.</li>
+          <li>Improved user conversion by <strong>30%</strong> across websites.</li>
+          <li>Achieved <strong>95% extraction accuracy</strong> using Selenium + Goose.</li>
+          <li>Integrated scalable ML workflow for rapid model updates.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <strong style="font-size:20px;">Pandas DataFrame Chatbot (LLM Insights Engine)</strong><br><br>
+        <ul style="line-height:1.8; font-size:17px; margin-left:20px;">
+          <li>Created a chatbot that answers questions directly from DataFrames.</li>
+          <li>Reduced manual report creation time by <strong>40%</strong>.</li>
+          <li>Optimized prompts to cut inference cost by <strong>50%</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <strong style="font-size:20px;">Real-Time Data Pipeline (AWS)</strong><br><br>
+        <ul style="line-height:1.8; font-size:17px; margin-left:20px;">
+          <li>Designed AWS serverless ETL for US-based enterprise clients.</li>
+          <li>Reduced data processing time by <strong>40%</strong> using optimized Spark transformations.</li>
+          <li>Built secure ingestion layers using Lambda + S3 + Redshift.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="grid experience-list">
+
+      <div class="card">
+        <strong style="font-size:20px;">Software Developer Trainee — Bosch</strong><br><br>
+        <ul style="line-height:1.8; font-size:17px; margin-left:20px;">
+          <li>Developed and deployed GenAI applications improving workflow automation by <strong>25%</strong>.</li>
+          <li>Built ML pipelines hosted on AWS for scalable operations.</li>
+          <li>Integrated GitHub Actions, GitHub Copilot, and CI/CD systems.</li>
+          <li>Fine-tuned domain-specific LLMs for customer-facing use cases.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <strong style="font-size:20px;">Data Engineer Trainee — FranConnect</strong><br><br>
+        <ul style="line-height:1.8; font-size:17px; margin-left:20px;">
+          <li>Built Redshift optimized pipelines to support thousands of daily users.</li>
+          <li>Processed high-volume US franchise data using ETL workflows.</li>
+          <li>Improved query performance using indexing and compression tuning.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <strong style="font-size:20px;">Data Science Intern — DynPro</strong><br><br>
+        <ul style="line-height:1.8; font-size:17px; margin-left:20px;">
+          <li>Created ML preprocessing pipelines reducing runtime by <strong>30%</strong>.</li>
+          <li>Performed customer segmentation improving retention by <strong>20%</strong>.</li>
+          <li>Worked with Snowflake, AWS EC2, and S3 for data workflows.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <p><strong>B.Tech — Electronics & Communication Engineering</strong><br>
+      Chandigarh Engineering College — CGPA: <strong>7.93</strong></p>
+
+      <p><strong>Sr. Secondary (PCM)</strong><br>
+      G.D. Goenka Public School — <strong>74%</strong></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: <a href="mailto:ankit282k@gmail.com">ankit282k@gmail.com</a></p>
+      <p>LinkedIn: <a href="#">linkedin.com/in/ankit282k</a></p>
+      <p>GitHub: <a href="#">github.com/ankit282k</a></p>
+    </div>
+  </section>
+
+  <footer>© 2025 Ankit Saxena. All Rights Reserved.</footer>
+</body>
+</html>
+  `);
+});
+
+app.listen(3000, () => console.log('Portfolio running at http://localhost:3000'));
