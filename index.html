@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ankit Saxena — GenAI Engineer</title>
+<title>Ankit Saxena — Portfolio</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -171,6 +171,24 @@ ul li::before {
   color: #3b82f6;
 }
 
+.social-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.social-links a img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.social-links a img:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
 /* Links */
 a { color: #3b82f6; transition: 0.3s; }
 a:hover { color: #8b5cf6; }
@@ -192,40 +210,41 @@ footer {
   <a href="#projects">Projects</a>
   <a href="#experience">Experience</a>
   <a href="#Certifications">Certifications</a>
-  <a href="Resume.pdf" download="Ankit_Saxena_Resume.pdf">Resume</a>
+  <a href="assets/Resume.pdf" download="Ankit_Saxena_Resume.pdf">Resume</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <header>
   <img src="profile.jpeg" class="hero-img" alt="Ankit Saxena" />
   <h1>ANKIT SAXENA</h1>
-  <p class="hero-sub">GenAI Engineer • ML Engineer • Data Engineer</p>
+  <p class="hero-sub">Data Engineer • GenAI Engineer </p>
 </header>
 
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
-<p>I am a Software Engineer specializing in <strong>Generative AI, LLMs, MLOps, and cloud-scale ML systems</strong>. I design and build production-grade AI applications that solve real business problems.</p>
-<p>My expertise spans <strong>AWS, PySpark, backend engineering, data platforms, and automation</strong>, delivering scalable systems such as <strong>RAG pipelines, GenAI chatbots, ETL frameworks, and ML workflows</strong>.</p>
-<p>I focus on building <strong>high-impact AI products</strong> that improve efficiency, accuracy, and decision-making at scale.</p>
+<p>I’m a Data and Machine Learning Engineer focused on building reliable, production-ready systems. I enjoy working on problems where data quality, modeling decisions, and system design matter as much as raw performance.</p>
+<p>I take a pragmatic, production-first approach—thinking beyond notebooks to how solutions behave in the real world. I value clarity, thoughtful trade-offs, and building systems that are stable, explainable, and built to last.</p>
 </div>
 </section>
 
 <section id="skills">
 <h2>Skills & Technologies</h2>
 <div class="grid skills-grid">
+<div class="card">Python</div>
+<div class="card">SQL</div>
+<div class="card">ETL</div>
+<div class="card">Machine Learning</div>
+<div class="card">Apache Spark</div>
+<div class="card">AWS</div>
+<div class="card">Docker</div>
+<div class="card">Snowflake / Redshift</div>
+<div class="card">GitHub Actions</div>
+<div class="card">MLOps</div>
 <div class="card">LLMs & Generative AI</div>
 <div class="card">RAG Pipelines</div>
-<div class="card">Prompt Engineering</div>
 <div class="card">LangChain & LlamaIndex</div>
 <div class="card">Hugging Face</div>
-<div class="card">MLOps & CI/CD</div>
-<div class="card">AWS (Bedrock, SageMaker)</div>
-<div class="card">PySpark / Spark SQL</div>
-<div class="card">ETL & Data Lakes</div>
-<div class="card">Snowflake / Redshift</div>
-<div class="card">Python / SQL / Node.js</div>
-<div class="card">Docker / GitHub Actions</div>
 </div>
 </section>
 
@@ -234,29 +253,32 @@ footer {
 <div class="grid projects-grid">
 
 <div class="card">
-<strong>AI-Powered Review Intelligence System</strong>
+<strong>Retail SKU Demand Prediction</strong>
 <ul>
-<li>LLM-driven sentiment & insight extraction at scale</li>
-<li>Increased conversion rates by <strong>30%</strong></li>
-<li><strong>95%</strong> extraction accuracy using Selenium + Goose</li>
+<li>End-to-end demand forecasting system to predict SKU-level daily demand for a retail store over a 21-day future horizon.</li>
+<li> The solution uses classical machine learning / statistical techniques, applies standard time-series feature engineering, and evaluates performance using RMSE.</li>
 </ul>
 </div>
 
 <div class="card">
-<strong>Pandas DataFrame Chatbot</strong>
+<strong>Brain Box</strong>
 <ul>
-<li>Natural-language analytics over structured datasets</li>
-<li>Reduced reporting effort by <strong>40%</strong></li>
-<li>Cut inference costs by <strong>50%</strong></li>
+<p>Brain Box is a Retrieval-Augmented Generation (RAG) chat bot.
+The backend ingests documents, builds a vector store, and serves a chat API that answers questions using retrieved context</p>
+<li>Vector embedding and storage using ChromaDB</li>
+<li>Semantic retrieval and prompt orchestration with LangChain</li>
+<li>It uses Models powered by Azure AI Foundry</li>
+<li>Document ingestion and vector store rebuild on upload</li>
+<li>Pluggable LLM / embedding configuration via environment variables</li>
 </ul>
 </div>
 
 <div class="card">
-<strong>Real-Time AWS Data Pipeline</strong>
+<strong>Real-Time Time Streaming ETL Pipeline</strong>
 <ul>
-<li>Serverless ETL for enterprise-scale workloads</li>
-<li>Optimized Spark transformations (<strong>40%</strong> faster)</li>
-<li>Secure Lambda + S3 + Redshift architecture</li>
+<p>A real-time ETL pipeline designed to ingest, process, and transform streaming data with low latency, enabling timely analytics and downstream machine learning use cases</p>
+<li>Built a scalable streaming pipeline to ingest and process events in near real time, ensuring data consistency and fault tolerance across the ETL flow.</li>
+<li>	Implemented real-time transformations and aggregations with monitoring and error handling to support reliable downstream analytics and ML systems</li>
 </ul>
 </div>
 
@@ -268,28 +290,36 @@ footer {
 <div class="grid experience-list">
 
 <div class="card">
-<strong>Associate Software Developer — Bosch</strong>
-<ul>
-<li>Production GenAI apps improving automation by <strong>25%</strong></li>
-<li>Scalable ML pipelines on AWS</li>
-<li>LLM fine-tuning & CI/CD integration</li>
-</ul>
+  <strong>Associate Software Developer — Bosch Global Software Technologies</strong>
+  <p><em>Feb 2025 – Present</em></p>
+  <ul>
+    <li>Developed and deployed <strong>LLM-based microservices</strong> and data-driven automation solutions, improving team productivity by <strong>32%</strong>.</li>
+    <li>Built scalable <strong>NLP and embedding pipelines</strong> using PyTorch, HuggingFace, and TensorFlow, reducing inference latency by <strong>28%</strong>.</li>
+    <li>Designed reusable AI components enabling a <strong>multi-use architecture</strong>, reducing development time for new use cases by <strong>40%</strong>.</li>
+    <li>Implemented production-grade applications using <strong>Python, Spark, FastAPI, and Docker</strong>, with monitoring for model drift and performance regression.</li>
+    <li>Collaborated in <strong>Agile / SAFe</strong> environments to translate requirements into reliable AI and data solutions.</li>
+  </ul>
 </div>
 
 <div class="card">
-<strong>Data Engineer Trainee — FranConnect</strong>
-<ul>
-<li>High-volume Redshift pipelines</li>
-<li>Optimized ETL for thousands of daily users</li>
-</ul>
+  <strong>Data Engineer Trainee — FranConnect Pvt. Ltd.</strong>
+  <p><em>Sep 2024 – Feb 2025</em></p>
+  <ul>
+    <li>Engineered scalable <strong>ETL and feature pipelines</strong> using PySpark, Hive, and SQL, improving processing performance by <strong>45%</strong>.</li>
+    <li>Optimized ingestion of <strong>30M+ records</strong> across distributed systems, ensuring data quality, governance, and lineage.</li>
+    <li>Reduced Spark job costs by <strong>22%</strong> through partitioning, caching, and schema evolution strategies.</li>
+    <li>Automated data and ML pipeline deployments using <strong>Docker and GitHub Actions</strong>, reducing deployment failures by <strong>80%</strong>.</li>
+  </ul>
 </div>
 
 <div class="card">
-<strong>Data Scientist Trainee — DynPro</strong>
-<ul>
-<li>ML preprocessing optimization (<strong>30%</strong> faster)</li>
-<li>Customer segmentation (+<strong>20%</strong> retention)</li>
-</ul>
+  <strong>Data Scientist Trainee — Dyno India Pvt. Ltd.</strong>
+  <p><em>Feb 2023 – Aug 2023</em></p>
+  <ul>
+    <li>Built and evaluated ML models (Logistic Regression, Random Forest, XGBoost, SVM, K-Means, PCA, ARIMA) achieving <strong>84–92%</strong> accuracy.</li>
+    <li>Developed deep learning models (<strong>CNN, LSTM</strong>) for text and image data, reducing validation loss by <strong>30%</strong>.</li>
+    <li>Implemented recommender systems using <strong>Collaborative Filtering and FISM</strong>, improving precision by <strong>25%</strong>.</li>
+  </ul>
 </div>
 
 </div>
@@ -298,20 +328,42 @@ footer {
 <section id="Certifications">
 <h2>Certifications</h2>
 <div class="card">
-<p>AWS Certified Cloud Practitioner</p>
+<p><strong>• AWS Certified Cloud Practitioner</p>
 </div>
 </section>
 
 <section id="contact">
-<h2>Contact</h2>
-<div class="card">
-<p>Email: <a href="mailto:ankit282k@gmail.com">ankit282k@gmail.com</a></p>
-<p>LinkedIn: <a href="#">linkedin.com/in/ankit282k</a></p>
-<p>GitHub: <a href="#">github.com/ankit282k</a></p>
-</div>
+  <h2>Contact</h2>
+  <div class="card contact-icons">
+
+    <p>Email: 
+      <a href="mailto:ankit282k@gmail.com">ankit282k@gmail.com</a>
+    </p>
+    <p>Phone: 
+      <a href="tel:+917500335301">+91 7500335301</a>
+    </p>
+    </div>
+  </div>
 </section>
 
-<footer>© 2026 Ankit Saxena — Built with Precision & Passion</footer>
+<section id="Socials">
+  <h2>Socials</h2>
+  <div class="card contact-icons">
+
+    <div class="social-links">
+      <a href="https://linkedin.com/in/ankit282k" target="_blank" aria-label="LinkedIn">
+        <img src="assets/linkedin.png" alt="LinkedIn" />
+      </a>
+
+      <a href="https://github.com/ankit282k" target="_blank" aria-label="GitHub">
+        <img src="assets/github.png" alt="GitHub" />
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer>© 2026 Ankit Saxena</footer>
 
 </body>
 </html>
